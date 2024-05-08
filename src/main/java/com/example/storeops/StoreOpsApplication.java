@@ -1,13 +1,13 @@
-package com.example.gamingnation;
+package com.example.storeops;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GamingNationApplication {
+public class StoreOpsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GamingNationApplication.class, args);
+		SpringApplication.run(StoreOpsApplication.class, args);
 	}
 
 }
