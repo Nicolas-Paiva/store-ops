@@ -17,9 +17,9 @@ import java.util.List;
 // TODO: Implement a "purchased items" database link
 
 /**
- * A user of the application,
- * contains a first name, last name,
- * email and password and a role.
+ * Represents the user authentication
+ * details, containing password, email,
+ * role and other authentication related data.
  */
 @Entity
 @Data

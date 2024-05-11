@@ -1,6 +1,6 @@
 package com.example.storeops.controller;
 
-import com.example.storeops.auth.AuthenticationService;
+import com.example.storeops.auth.service.AuthenticationService;
 import com.example.storeops.auth.dto.RegistrationRequest;
 import com.example.storeops.auth.dto.RegistrationResponse;
 import com.example.storeops.auth.dto.SignInRequest;

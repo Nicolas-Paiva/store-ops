@@ -1,6 +1,7 @@
 package com.example.storeops.user.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  * Provides the method "loadUserByUsername"
@@ -10,6 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public interface UserService {
 
-    UserDetails loadUserByUsername(String username);
+    public UserDetailsService userDetailsService();
 
 }

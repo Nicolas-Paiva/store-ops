@@ -1,4 +1,4 @@
-package com.example.storeops.auth;
+package com.example.storeops.auth.service;
 
 import com.example.storeops.auth.dto.RegistrationRequest;
 import com.example.storeops.auth.dto.RegistrationResponse;

@@ -15,7 +15,7 @@ import java.util.function.Function;
 public class JwtServiceImpl implements JwtService{
 
     private final long expirationTime = 3600000; // 1 day
-    private final String SECRET_KEY = "08e8a592deca17edf33239382ae22aeb2da0b7e719a2815684c925f2c304e0e0";
+    private final String SECRET_KEY = "d300eda36ee988fb5adb0eb1de9515081696f1ced93342c895883dd207380904";
 
     /**
      * Generates a JWT token based on
@@ -27,7 +27,7 @@ public class JwtServiceImpl implements JwtService{
         return Jwts.builder()
                 .subject(userDetails.getUsername())
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + expirationTime))
+                .expiration(new Date(System.currentTimeMillis() + 1000 * 60))
                 .signWith(getSigningKey())
                 .compact();
 
@@ -100,7 +100,7 @@ public class JwtServiceImpl implements JwtService{
      */
     private boolean isTokenExpired(String token){
         return extractClaim(token, Claims::getExpiration)
-                .before(new Date(System.currentTimeMillis()));
+                .before(new Date());
     }
 
     /**
@@ -118,7 +118,7 @@ public class JwtServiceImpl implements JwtService{
      */
     public boolean isTokenValid(String token, UserDetails userDetails){
         final String username = extractUsername(token);
-        return username.equals(userDetails.getUsername()) && isTokenExpired(token);
+        return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
 
 }

@@ -14,27 +14,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserDetailsService, UserService {
+public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
 
-
-
-//    public org.springframework.security.core.userdetails.UserDetailsService userDetailsService(){
-//        return new org.springframework.security.core.userdetails.UserDetailsService(){
-//
-//            @Override
-//            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//                return userRepository.findUserByEmail(username)
-//                        .orElseThrow(() -> new UsernameNotFoundException("User not found"));
-//            }
-//
-//        };
-//    }
-
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findUserByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+    public UserDetailsService userDetailsService(){
+        return new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                return userRepository.findUserByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+            }
+        };
     }
 }
-// return userRepository.findUserByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));

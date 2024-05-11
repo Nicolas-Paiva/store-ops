@@ -10,10 +10,13 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 public interface JwtService {
 
+    // Generates a JWT
     String generateToken(UserDetails userDetails);
 
+    // Extracts the username (email) from the JWT
     String extractUsername(String token);
 
+    // Verifies whether a JWT is valid
     boolean isTokenValid(String token, UserDetails userDetails);
 
 }
